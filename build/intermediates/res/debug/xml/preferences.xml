@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <EditTextPreference 
+        android:summary="@string/pref_increment_desc"
+        android:title="@string/pref_increment"
+        android:inputType="number"
+        android:defaultValue="1" 
+        android:key="increment" />
+    
+    <EditTextPreference
+        android:summary="@string/prefs_start_score_desc"
+        android:title="@string/prefs_start_score"
+        android:inputType="number"
+        android:key="startScore"
+        android:defaultValue="0"/>
+
+    <CheckBoxPreference
+        android:summary="@string/prefs_lefty_desc"
+        android:title="@string/prefs_lefty"
+        android:key="leftyMode"
+        android:defaultValue="False"/>
+
+    <PreferenceCategory>
+        
+        <Preference 
+            android:layout="@layout/about_screen" 
+            android:title="About" />
+        
+    </PreferenceCategory>
+
+    
+</PreferenceScreen><!-- From: file:/C:/Users/Brett/Documents/GitHub/ScoreBoard/res/xml/preferences.xml -->

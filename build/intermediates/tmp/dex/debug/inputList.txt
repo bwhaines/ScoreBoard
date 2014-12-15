@@ -1,0 +1,2 @@
+C:\Users\Brett\Documents\GitHub\ScoreBoard\build\intermediates\classes\debug
+C:\Users\Brett\Documents\GitHub\ScoreBoard\build\intermediates\pre-dexed\debug\android-support-v4-3024a316c924fa1b8b15eca63ed4d011dc192d5e.jar

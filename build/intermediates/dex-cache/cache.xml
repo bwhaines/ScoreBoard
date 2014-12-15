@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\Brett\Documents\GitHub\ScoreBoard\libs\android-support-v4.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="db0f122c99ef9f90dbab3fada6d191f2880cbb8e">
+        <dex dex="C:\Users\Brett\Documents\GitHub\ScoreBoard\build\intermediates\pre-dexed\debug\android-support-v4-3024a316c924fa1b8b15eca63ed4d011dc192d5e.jar" />
+    </item>
+
+</items>

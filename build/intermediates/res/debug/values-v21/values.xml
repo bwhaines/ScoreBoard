@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/Brett/Documents/GitHub/ScoreBoard/res/values-v21/styles.xml -->
+    <eat-comment/>
+    <color name="accent">#00202B</color>
+    <color name="primary">#0099cc</color>
+    <color name="primary_dark">#004C66</color>
+    <color name="text_primary">#000000</color>
+    <style name="CustomTheme" parent="android:Theme.Material.Light">
+        <!-- Main theme colors -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+    </style>
+</resources>

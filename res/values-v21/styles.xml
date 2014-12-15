@@ -1,0 +1,16 @@
+<resources>
+
+    <style name="CustomTheme" parent="android:Theme.Material.Light">
+        <!-- Main theme colors -->
+        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:colorPrimaryDark">@color/primary_dark</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+    </style>
+
+    <color name="primary">#0099cc</color>
+    <color name="primary_dark">#004C66</color>
+    <color name="accent">#00202B</color>
+    <color name="text_primary">#000000</color>
+
+</resources>
