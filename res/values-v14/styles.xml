@@ -1,12 +1,26 @@
 <resources>
 
-    <!--
-        Base application theme for API 14+. This theme completely replaces
-        AppBaseTheme from BOTH res/values/styles.xml and
-        res/values-v11/styles.xml on API 14+ devices.
-    -->
-    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <!-- API 14 theme customizations can go here. -->
+    <style name="ScoreboardTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:color">@color/primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
     </style>
+
+    <style name="ScoreboardDialogTheme" parent="android:Theme.Holo.Light.Dialog">
+        <item name="android:color">@color/primary</item>
+        <item name="android:textColorPrimary">@color/text_primary</item>
+    </style>
+
+    <style
+        name="MyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar" >
+        <item name="android:background"> @color/primary </item>
+        <item name="android:title">@string/empty_string</item>
+    </style>
+
+
+    <color name="primary">#0099cc</color>
+    <color name="primary_dark">#004C66</color>
+    <color name="accent">#00202B</color>
+    <color name="text_primary">#000000</color>
 
 </resources>

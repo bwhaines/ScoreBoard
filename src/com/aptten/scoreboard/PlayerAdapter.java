@@ -112,18 +112,20 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         	}
         });
 
-        // Sets listeners to change fields back into views
+        // Sets listeners to change fields back into views on pressing return key
         nameEdit.setOnEditorActionListener(new OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 				String newName = nameEdit.getText().toString();
 				nameSwitcher.showPrevious();
-        	    nameField.setText(newName);
-        	    player.setName(newName);
+                if(!newName.equals("")) {
+        	        nameField.setText(newName);
+        	        player.setName(newName);
+                }
                 nameEdit.setInputType(InputType.TYPE_NULL);
         	    return false;
 			}
-             });
+        });
         scoreEdit.setOnEditorActionListener(new OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -134,7 +136,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
                 scoreEdit.setInputType(InputType.TYPE_NULL);
         	    return false;
 			}
-             });
+        });
 
         return playerView;
     }

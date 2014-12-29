@@ -1,0 +1,8 @@
+UPDATE 1 - 12/29/2014
+
+- Fixed bug where users could enter an empty string as a name
+- Fixed spacing issues in list layout
+- Now displays logo in action bar in Android 5.0+
+- Added timer
+- Added new settings for timer
+

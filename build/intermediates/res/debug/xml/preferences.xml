@@ -17,6 +17,12 @@
         android:defaultValue="0"/>
 
     <CheckBoxPreference
+        android:summary="@string/prefs_timer_desc"
+        android:title="@string/prefs_timer"
+        android:key="dispTimer"
+        android:defaultValue="True"/>
+
+    <CheckBoxPreference
         android:summary="@string/prefs_lefty_desc"
         android:title="@string/prefs_lefty"
         android:key="leftyMode"
