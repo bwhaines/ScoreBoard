@@ -6,3 +6,8 @@ UPDATE 1 - 12/29/2014
 - Added timer
 - Added new settings for timer
 
+
+UPDATE 2 - 12/30/2014
+
+- Fixed bug where keyboard does not properly dismiss
+- Adjusted spacing between arrows and number

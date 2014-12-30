@@ -2,11 +2,11 @@ package com.aptten.scoreboard;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.text.InputType;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -55,10 +55,12 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
             LayoutInflater vi;
             vi = (LayoutInflater) getContext().getSystemService(inflater);
             vi.inflate(resource, playerView, true);
-        }
-        else {
+        } else {
             playerView = (RelativeLayout) convertView;
         }
+
+        // Set up an input method manager to control the keyboard
+        final InputMethodManager imm = (InputMethodManager) getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
         
         // Connects TextView in layout to object here
         final TextView nameField = (TextView) playerView.findViewById(R.id.name_textview);
@@ -122,7 +124,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         	        nameField.setText(newName);
         	        player.setName(newName);
                 }
-                nameEdit.setInputType(InputType.TYPE_NULL);
+                imm.hideSoftInputFromWindow(nameEdit.getWindowToken(), 0);
         	    return false;
 			}
         });
@@ -133,7 +135,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
 				scoreSwitcher.showPrevious();
         	    scoreField.setText(""+newScore);
         	    player.setScore(newScore);
-                scoreEdit.setInputType(InputType.TYPE_NULL);
+                imm.hideSoftInputFromWindow(scoreEdit.getWindowToken(), 0);
         	    return false;
 			}
         });
