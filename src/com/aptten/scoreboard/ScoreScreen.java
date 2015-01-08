@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Vibrator;
@@ -24,8 +25,7 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 	
 	// Instance Variables
     private ListView listview;
-    private TextView timerText;
-    private View horizRule;
+    private TextView timerText,timerTitle;
     private LinearLayout timerLayout;
     private PlayerAdapter adapter;
     private ArrayList<Player> list;
@@ -45,7 +45,8 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
         // display logo in action bar
         if(getActionBar()!= null) {
             getActionBar().setDisplayShowHomeEnabled(true);
-            getActionBar().setLogo(R.drawable.logo);
+
+            getActionBar().setLogo(R.drawable.header);
             getActionBar().setDisplayUseLogoEnabled(true);
             getActionBar().setTitle(R.string.empty_string);
         }
@@ -58,10 +59,13 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 
         // link timer layout to object
         timerLayout = (LinearLayout) findViewById(R.id.timer_layout);
-        horizRule = findViewById(R.id.horizontal_rule);
 
-        // link timer display to textView
+        // Create Typeface object to set custom font
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Quicksand-Regular.otf");
+
+        // link timer display to textView, set font
         timerText = (TextView) findViewById(R.id.timer_display);
+        timerText.setTypeface(font);
         timerText.setText("0:00:00");
         timerText.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,6 +75,10 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
                 }
             }
         });
+
+        // link timer title to TextView, set font
+        timerTitle = (TextView) findViewById(R.id.timer_title);
+        timerTitle.setTypeface(font);
 		
 		// load preferences
 		startingScore = Integer.parseInt(prefs.getString("startScore", "0"));
@@ -141,10 +149,8 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
         // make timer invisible if preference dictates
         if(!prefs.getBoolean("dispTimer",true)) {
             timerLayout.setVisibility(LinearLayout.GONE);
-            horizRule.setVisibility(View.GONE);
         } else {
             timerLayout.setVisibility(LinearLayout.VISIBLE);
-            horizRule.setVisibility(View.VISIBLE);
         }
 
     }

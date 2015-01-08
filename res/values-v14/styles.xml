@@ -17,9 +17,8 @@
         <item name="android:title">@string/empty_string</item>
     </style>
 
-
-    <color name="primary">#0099cc</color>
-    <color name="primary_dark">#004C66</color>
+    <color name="primary">#ff67cbff</color>
+    <color name="primary_dark">#ff58aedb</color>
     <color name="accent">#00202B</color>
     <color name="text_primary">#000000</color>
 

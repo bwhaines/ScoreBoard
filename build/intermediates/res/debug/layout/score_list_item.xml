@@ -43,7 +43,7 @@
         android:layout_height="48dp"
         android:layout_gravity="center_vertical"
         android:layout_alignParentRight="true"
-        android:background="@drawable/ic_find_previous_holo_light"
+        android:background="@drawable/ic_arrow_right"
         android:contentDescription="@string/up_button_desc" />
 
     <ViewSwitcher
@@ -81,7 +81,7 @@
         android:layout_marginRight="16dp"
         android:layout_toLeftOf="@id/score_switcher"
         android:layout_gravity="center_vertical"
-	    android:background="@drawable/ic_find_next_holo_light"
+	    android:background="@drawable/ic_arrow_left"
         android:contentDescription="@string/down_button_desc" />
 	
 </RelativeLayout>

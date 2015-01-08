@@ -3,17 +3,18 @@
 
     <string name="app_name">ScoreBoard</string>
     <string name="action_settings">Settings</string>
-    <string name="empty_string"></string>
+    <string name="empty_string"> </string>
     <string name="placeholder_number">0000</string>
     <string name="name_field_hint">Player Name</string>
     <string name="action_add">Add a Player</string>
     <string name="action_remove">Remove a Player</string>
     <string name="about_title">ScoreBoard 1.0.0</string>
     <string name="about_company">Apartment Ten Software</string>
-    <string name="about_year">2014</string>
+    <string name="about_year">2015</string>
     <string name="dialog_hints">Press and hold a name to change it \n\nPress and hold a score to change it \n\nSee the settings menu for other options \n\nThank you for downloading our app!</string>
     <string name="dialog_title">Getting Started</string>
     <string name="dialog_timer_affirmative">Start Timer</string>
+    <string name="timer_title">timer</string>
     <string name="hints_settings">Show Hints</string>
     <string name="play_button_desc">Start timer</string>
     <string name="pause_button_desc">Pause timer</string>

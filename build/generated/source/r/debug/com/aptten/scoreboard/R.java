@@ -21,42 +21,46 @@ public final class R {
         public static final int activity_vertical_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int ic_action_pause=0x7f020000;
-        public static final int ic_action_play=0x7f020001;
-        public static final int ic_action_stop=0x7f020002;
-        public static final int ic_action_user_add=0x7f020003;
-        public static final int ic_action_user_remove=0x7f020004;
-        public static final int ic_find_next_holo_light=0x7f020005;
-        public static final int ic_find_previous_holo_light=0x7f020006;
-        public static final int ic_launcher=0x7f020007;
-        public static final int ic_media_route_off_holo_light=0x7f020008;
-        public static final int logo=0x7f020009;
+        public static final int header=0x7f020000;
+        public static final int ic_action_pause=0x7f020001;
+        public static final int ic_action_play=0x7f020002;
+        public static final int ic_action_stop=0x7f020003;
+        public static final int ic_action_user_add=0x7f020004;
+        public static final int ic_action_user_remove=0x7f020005;
+        public static final int ic_arrow_left=0x7f020006;
+        public static final int ic_arrow_right=0x7f020007;
+        public static final int ic_find_next_holo_light=0x7f020008;
+        public static final int ic_find_previous_holo_light=0x7f020009;
+        public static final int ic_launcher=0x7f02000a;
+        public static final int ic_media_route_off_holo_light=0x7f02000b;
+        public static final int logo=0x7f02000c;
     }
     public static final class id {
-        public static final int action_add=0x7f0a0016;
-        public static final int action_remove=0x7f0a0017;
-        public static final int action_settings=0x7f0a0014;
-        public static final int dialog_button=0x7f0a000a;
-        public static final int down_button=0x7f0a0013;
-        public static final int hints_settings=0x7f0a0015;
-        public static final int horizontal_rule=0x7f0a0005;
-        public static final int hour_picker=0x7f0a0007;
-        public static final int list=0x7f0a0006;
-        public static final int minute_picker=0x7f0a0008;
-        public static final int name_edittext=0x7f0a000e;
-        public static final int name_switcher=0x7f0a000c;
-        public static final int name_textview=0x7f0a000d;
+        public static final int action_add=0x7f0a0017;
+        public static final int action_remove=0x7f0a0018;
+        public static final int action_settings=0x7f0a0015;
+        public static final int dialog_button=0x7f0a000b;
+        public static final int down_button=0x7f0a0014;
+        public static final int hints_settings=0x7f0a0016;
+        public static final int hour_picker=0x7f0a0008;
+        public static final int list=0x7f0a0007;
+        public static final int minute_picker=0x7f0a0009;
+        public static final int name_edittext=0x7f0a000f;
+        public static final int name_switcher=0x7f0a000d;
+        public static final int name_textview=0x7f0a000e;
         public static final int pause_button=0x7f0a0003;
         public static final int play_button=0x7f0a0002;
-        public static final int relative_wrapper=0x7f0a000b;
-        public static final int score_edittext=0x7f0a0012;
-        public static final int score_switcher=0x7f0a0010;
-        public static final int score_textview=0x7f0a0011;
-        public static final int second_picker=0x7f0a0009;
+        public static final int relative_wrapper=0x7f0a000c;
+        public static final int score_edittext=0x7f0a0013;
+        public static final int score_switcher=0x7f0a0011;
+        public static final int score_textview=0x7f0a0012;
+        public static final int second_picker=0x7f0a000a;
         public static final int stop_button=0x7f0a0004;
         public static final int timer_display=0x7f0a0001;
         public static final int timer_layout=0x7f0a0000;
-        public static final int up_button=0x7f0a000f;
+        public static final int timer_title=0x7f0a0006;
+        public static final int timer_title_layout=0x7f0a0005;
+        public static final int up_button=0x7f0a0010;
     }
     public static final class layout {
         public static final int about_screen=0x7f030000;
@@ -97,7 +101,8 @@ public final class R {
         public static final int prefs_timer=0x7f060019;
         public static final int prefs_timer_desc=0x7f06001a;
         public static final int stop_button_desc=0x7f06001b;
-        public static final int up_button_desc=0x7f06001c;
+        public static final int timer_title=0x7f06001c;
+        public static final int up_button_desc=0x7f06001d;
     }
     public static final class style {
         /** 

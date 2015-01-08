@@ -3,11 +3,11 @@
     <!-- From: file:/C:/Users/Brett/Documents/GitHub/ScoreBoard/res/values-v21/styles.xml -->
     <eat-comment/>
     <color name="accent">#00202B</color>
-    <color name="primary">#0099cc</color>
-    <color name="primary_dark">#004C66</color>
+    <color name="primary">#ff67cbff</color>
+    <color name="primary_dark">#ff58aedb</color>
     <color name="text_primary">#000000</color>
     <style name="MyActionBar" parent="@android:style/Theme.Material.Light.DarkActionBar">
-        <item name="android:background"> #0099CC </item>
+        <item name="android:background">@color/primary</item>
         <item name="android:titleTextStyle">@style/NoTitleText</item>
     </style>
     <style name="NoTitleText">

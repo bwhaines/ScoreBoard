@@ -2,6 +2,7 @@ package com.aptten.scoreboard;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -72,9 +73,14 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         final Button plus = (Button) playerView.findViewById(R.id.up_button);
         final Button minus = (Button) playerView.findViewById(R.id.down_button);
 
-        // Replaces TextView text with correct data
+        // Replaces default TextView text with correct data
         nameField.setText(player.getName());
         scoreField.setText(Integer.toString(player.getScore()));
+
+        // Set fonts for textviews
+        Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Quicksand-Regular.otf");
+        nameField.setTypeface(font);
+        scoreField.setTypeface(font);
 
         // Creates onClickListener objects for plus and minus buttons
         plus.setOnClickListener(new View.OnClickListener() {

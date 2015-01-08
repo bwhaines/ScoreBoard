@@ -15,14 +15,14 @@ public class Player {
     /** Player's current score */
 	private int score;
 
-    /** Creates a Player object with name setName and score setScore.
+    /** Creates a Player object with name newName and score newScore.
      *
-     * @param setName
-     * @param setScore
+     * @param newName
+     * @param newScore
      */
-	public Player(String setName, int setScore) {
-		name = setName;
-		score = setScore;
+	public Player(String newName, int newScore) {
+		name = newName;
+		score = newScore;
 	}
 
 	public void setName(String newName) {
