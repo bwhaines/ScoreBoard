@@ -11,3 +11,19 @@ UPDATE 2 - 12/30/2014
 
 - Fixed bug where keyboard does not properly dismiss
 - Adjusted spacing between arrows and number
+
+
+UPDATE 3 - 01/06/2015
+
+- Added custom font
+- Moved timer to bottom
+- Changed action bar logo
+- Changed arrow buttons
+
+
+UPDATE 4 - 01/11/2015
+
+- Added winner dialog
+- Added share function
+- Added score-clearing function
+- Fixed some spacing issues
