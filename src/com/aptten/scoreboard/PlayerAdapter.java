@@ -79,8 +79,12 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
 
         // Set fonts for textviews
         Typeface font = Typeface.createFromAsset(getContext().getAssets(), "fonts/Quicksand-Regular.otf");
+        Typeface fontBold = Typeface.createFromAsset(getContext().getAssets(), "fonts/Quicksand-Bold.otf");
         nameField.setTypeface(font);
         scoreField.setTypeface(font);
+        nameEdit.setTypeface(fontBold);
+        scoreEdit.setTypeface(fontBold);
+
 
         // Creates onClickListener objects for plus and minus buttons
         plus.setOnClickListener(new View.OnClickListener() {
@@ -113,7 +117,7 @@ public class PlayerAdapter extends ArrayAdapter<Player> {
         	@Override
         	public boolean onLongClick(View v) {
         		scoreSwitcher.showNext();
-        		nameEdit.setText("");
+                scoreEdit.setText(""+player.getScore());
         		scoreEdit.setFocusableInTouchMode(true);
         	    scoreEdit.requestFocus();
         	    return false;

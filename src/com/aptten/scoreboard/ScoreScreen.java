@@ -2,14 +2,12 @@ package com.aptten.scoreboard;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -25,8 +23,8 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 	
 	// Instance Variables
     private ListView listview;
-    private TextView timerText,timerTitle;
-    private LinearLayout timerLayout;
+    private TextView timerText;
+    private LinearLayout timerLayout, timerTitleLayout;
     private PlayerAdapter adapter;
     private ArrayList<Player> list;
     private CountDownTimer timer;
@@ -38,14 +36,13 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// standard onCreate calls
+		// Standard onCreate calls
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_score_screen);
 
-        // display logo in action bar
+        // Display logo in action bar
         if(getActionBar()!= null) {
             getActionBar().setDisplayShowHomeEnabled(true);
-
             getActionBar().setLogo(R.drawable.header);
             getActionBar().setDisplayUseLogoEnabled(true);
             getActionBar().setTitle(R.string.empty_string);
@@ -54,16 +51,17 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 		// get shared preferences
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-		// create and link ListView UI object to this
+		// Create and link ListView UI object to this
 		listview = (ListView) findViewById(R.id.list);
 
-        // link timer layout to object
+        // Link timer layouts to objects
         timerLayout = (LinearLayout) findViewById(R.id.timer_layout);
+        timerTitleLayout = (LinearLayout) findViewById(R.id.timer_title_layout);
 
         // Create Typeface object to set custom font
         Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Quicksand-Regular.otf");
 
-        // link timer display to textView, set font
+        // Link timer display to textView, set font
         timerText = (TextView) findViewById(R.id.timer_display);
         timerText.setTypeface(font);
         timerText.setText("0:00:00");
@@ -76,32 +74,32 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
             }
         });
 
-        // link timer title to TextView, set font
-        timerTitle = (TextView) findViewById(R.id.timer_title);
+        // Link timer title to TextView, set font
+        TextView timerTitle = (TextView) findViewById(R.id.timer_title);
         timerTitle.setTypeface(font);
 		
-		// load preferences
+		// Load preferences
 		startingScore = Integer.parseInt(prefs.getString("startScore", "0"));
 		if(prefs.getBoolean("firstRun", true)) {
 			prefs.edit().putBoolean("firstRun", false).apply();
 			hintsDialog();
 		}
 
-		// creates list used to populate ListView
+		// Creates list used to populate ListView
 		list = new ArrayList<>();
 		
-		// create list of generic names to initially populate ListView
+		// Create list of generic names to initially populate ListView
 		list = createPlaceholderObjects();
 		
-		// creates and populates ListView
+		// Creates and populates ListView
 		makeListView();
 
-        // set up listeners for the timer buttons
+        // Set up listeners for the timer buttons
         ImageButton playTimer = (ImageButton) findViewById(R.id.play_button);
         playTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(timeRemaining > 0) onReturnTimer(timeRemaining);
+                if(timeRemaining > 0 && timer == null) onReturnTimer(timeRemaining);
             }
         });
 
@@ -109,7 +107,10 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
         pauseTimer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(timer != null) timer.cancel();
+                if(timer != null){
+                    timer.cancel();
+                    timer = null;
+                }
             }
         });
 
@@ -128,7 +129,7 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 
 	}
 
-    // determine which layout to use (left-aligned or normal) and set up adapter
+    // Determine which layout to use (left-aligned or normal) and set up adapter
 	private void makeListView() {
         if(prefs.getBoolean("leftyMode", false)){
             adapter = new PlayerAdapter(ScoreScreen.this, R.layout.score_list_item_left, list, prefs);
@@ -143,14 +144,16 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 		super.onResume();
 		makeListView();
 
-        // get starting score preference
+        // Met starting score preference
 		startingScore = Integer.parseInt(prefs.getString("startScore", "0"));
 
-        // make timer invisible if preference dictates
+        // Make timer invisible if preference dictates
         if(!prefs.getBoolean("dispTimer",true)) {
             timerLayout.setVisibility(LinearLayout.GONE);
+            timerTitleLayout.setVisibility(LinearLayout.GONE);
         } else {
             timerLayout.setVisibility(LinearLayout.VISIBLE);
+            timerTitleLayout.setVisibility(LinearLayout.VISIBLE);
         }
 
     }
@@ -188,6 +191,10 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 	        case R.id.hints_settings:
 	        	hintsDialog();
 	        	return true;
+            case R.id.action_clear_scores:
+                for(Player p : list) p.setScore(0);
+                makeListView();
+                return true;
 	        default:
 	            return super.onOptionsItemSelected(item);
 	    }
@@ -207,7 +214,7 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
            .show();
 	}
 
-    // create the initial 4 players shown when app begins
+    // Create the initial 4 players shown when app begins
 	public ArrayList<Player> createPlaceholderObjects() {
 		ArrayList<Player> list = new ArrayList<>();
 		
@@ -220,7 +227,7 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 		return list;
 	}
 
-    // create and display the hints dialog
+    // Create and display the hints dialog
 	private void hintsDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(R.string.dialog_title)
@@ -233,7 +240,19 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
         	   .show();
 	}
 
-    // create and display the "New Timer" dialog
+    // Create and display winner dialog
+    private void endDialog(String name) {
+        WinnerFragment winnerFrag = new WinnerFragment();
+
+        // Pass winner's name to fragment
+        Bundle args = new Bundle();
+        args.putString("winner", name);
+        winnerFrag.setArguments(args);
+
+        winnerFrag.show(getFragmentManager(), "winner_dialog");
+    }
+
+    // Create and display the "New Timer" dialog
     private void createTimer() {
         TimerFragment timerFragment = new TimerFragment();
         timerFragment.show(getFragmentManager(), "timer_dialog");
@@ -241,10 +260,10 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
 
     public void onReturnTimer(long millis) {
 
-        // display time
+        // Display time
         displayTime(millis);
 
-        // create the timer object and start countdown
+        // Create the timer object and start countdown
         timer = new CountDownTimer(millis, 1000) {
             public void onTick(long millis) {
                 displayTime(millis);
@@ -256,23 +275,27 @@ public class ScoreScreen extends Activity implements TimerFragment.TimerDialogLi
                 timer = null;
                 timeRemaining = 0;
 
-                // Create a vibrator object to go off when timer reaches 0
-                Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-
-                // Vibrate device for one second
-                v.vibrate(1000);
-
-                // Clear timer object and text
-                timer = null;
-                timeRemaining = 0;
-                timerText.setText("0:00:00");
+                // Display dialog with message winner
+                endDialog(getWinner(list).getName());
             }
         }.start();
     }
 
+    // Format remaining time appropriately and display it
     private void displayTime(long millis) {
         String time = String.format("%d:%02d:%02d", millis/3600000, millis/60000%60, millis/1000%60);
         timerText.setText(time);
     }
-	
+
+    //  Determine the player with the highest score, ties go to player higher on list
+    private Player getWinner(ArrayList<Player> playerList) {
+        if(playerList.isEmpty()) return null;
+
+        Player winner = playerList.get(0);
+        for(Player p : playerList) {
+            if(p.getScore() > winner.getScore()) winner = p;
+        }
+        return winner;
+    }
+
 }

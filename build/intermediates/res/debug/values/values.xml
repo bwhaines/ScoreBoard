@@ -6,10 +6,11 @@
     <dimen name="activity_vertical_margin">16dp</dimen>
     <!-- From: file:/C:/Users/Brett/Documents/GitHub/ScoreBoard/res/values/strings.xml -->
     <eat-comment/>
-    <string name="about_company">Apartment Ten Software</string>
-    <string name="about_title">ScoreBoard 1.0.0</string>
+    <string name="about_company">Richter Creative Solutions</string>
+    <string name="about_title">ScoreBoard 1.0</string>
     <string name="about_year">2015</string>
     <string name="action_add">Add a Player</string>
+    <string name="action_clear">Clear Scores</string>
     <string name="action_remove">Remove a Player</string>
     <string name="action_settings">Settings</string>
     <string name="app_name">ScoreBoard</string>
@@ -33,9 +34,12 @@
     <string name="prefs_start_score_desc">Adjust score new players start out with</string>
     <string name="prefs_timer">Display Timer</string>
     <string name="prefs_timer_desc">Choose whether or not timer is displayed</string>
+    <string name="share_button_desc">Share Button</string>
+    <string name="share_button_text">Share!</string>
     <string name="stop_button_desc">Stop and clear timer</string>
     <string name="timer_title">timer</string>
     <string name="up_button_desc">Increase score</string>
+    <string name="winner_dialog"> has won the game!  Tell all of your friends about it!</string>
     <!-- From: file:/C:/Users/Brett/Documents/GitHub/ScoreBoard/res/values/styles.xml -->
     <eat-comment/>
     <style name="AppBaseTheme" parent="android:Theme.Light">

@@ -19,8 +19,7 @@ public class TimerFragment extends DialogFragment {
     NumberPicker minutePicker;
     NumberPicker secondPicker;
 
-    public TimerFragment() {
-    }
+    public TimerFragment() {}
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
